@@ -37,24 +37,24 @@ void insertion_sort_list(listint_t **list)
 	listint_t *p1;
 	listint_t *p2;
 
-	p1 = (*list);
+	if (*list == NULL)
+		return;
+	p1 = (*list)->next;
 	while (p1 != NULL)
 	{
 		p2 = p1;
-		p1 = p1->next;
 		while (p2 && p2->prev)
 		{
 			if (p2->n < p2->prev->n)
 			{
 				swap(p2->prev, p2);
 				if (p2->prev == NULL)
-					(*list) = p2;
+					*list = p2;
 				print_list(*list);
+				continue;
 			}
-			else
-			{
-				p2 = p2->next;
-			}
+			p2 = p2->next;
 		}
+		p1 = p1->next;
 	}
 }

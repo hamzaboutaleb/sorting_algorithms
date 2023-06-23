@@ -47,7 +47,6 @@ int main(void)
     list = create_listint(array, n);
     if (!list)
         return (1);
-    printf("here");
     print_list(list);
     printf("\n");
     insertion_sort_list(&list);
