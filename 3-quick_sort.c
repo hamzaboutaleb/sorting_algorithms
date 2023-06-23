@@ -15,36 +15,51 @@ void swap(int *a, int *b)
 	*b = temp;
 }
 
+/**
+ * partition - partition function useing lomuto's algo
+ * @array: pointer to arrau
+ * @low: low index
+ * @high: high index
+ * @size: siez of array
+ * Return: index of pivot
+*/
 size_t partition(int *array, size_t low, size_t high, size_t size)
 {
-    int pivot;
-    size_t i, j;
+	int pivot;
+	size_t i, j;
 
-    j = low;
-    pivot = array[high];
-    for (i = low; i < high; i++)
-    {
-        if (array[i] <= pivot)
-        {
-            swap(&array[i], &array[j]);
-            j++;
-        }
-    }
-    swap(&array[j], &array[high]);
-    print_array(array, size);
-    return (j);
+	j = low;
+	pivot = array[high];
+	for (i = low; i < high; i++)
+	{
+		if (array[i] <= pivot)
+		{
+			swap(&array[i], &array[j]);
+			j++;
+		}
+	}
+	swap(&array[j], &array[high]);
+	print_array(array, size);
+	return (j);
 }
 
+/**
+ * quick_sort_rec - sort array of elemnt using quick sort
+ * @array: array
+ * @low: low indx
+ * @high: high indx
+ * @size: size
+*/
 void quick_sort_rec(int *array, int low, int high, size_t size)
 {
-    int pivot_i;
-    
-    if (low >= high)
-        return;
+	int pivot_i;
 
-    pivot_i = partition(array, low, high, size);
-    quick_sort_rec(array, low, pivot_i - 1, size);
-    quick_sort_rec(array, pivot_i + 1, high, size);
+	if (low >= high)
+		return;
+
+	pivot_i = partition(array, low, high, size);
+	quick_sort_rec(array, low, pivot_i - 1, size);
+	quick_sort_rec(array, pivot_i + 1, high, size);
 }
 
 /**
@@ -54,5 +69,5 @@ void quick_sort_rec(int *array, int low, int high, size_t size)
 */
 void quick_sort(int *array, size_t size)
 {
-    quick_sort_rec(array, 0, size - 1, size);
+	quick_sort_rec(array, 0, size - 1, size);
 }
