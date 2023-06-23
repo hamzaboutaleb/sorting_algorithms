@@ -28,19 +28,23 @@ size_t partition(int *array, size_t low, size_t high, size_t size)
 	int pivot;
 	size_t i, j;
 
-	j = low;
+	j = low - 1;
 	pivot = array[high];
 	for (i = low; i < high; i++)
 	{
-		if (array[i] <= pivot)
+		if (array[i] <= pivot && array[i] != array[j])
 		{
-			swap(&array[i], &array[j]);
 			j++;
+			swap(&array[i], &array[j]);
+			print_array(array, size);
 		}
 	}
-	swap(&array[j], &array[high]);
-	print_array(array, size);
-	return (j);
+	if (array[j + 1] != array[high])
+	{
+		swap(&array[j + 1], &array[high]);
+		print_array(array, size);
+	}
+	return (j + 1);
 }
 
 /**
