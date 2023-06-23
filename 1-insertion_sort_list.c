@@ -8,12 +8,10 @@
 */
 void swap(listint_t *prevList, listint_t *nextList)
 {
-	listint_t *temp1 = NULL, *temp2 = NULL;
+	listint_t *temp1, *temp2;
 
-	if (nextList->next)
-		temp1 = nextList->next;
-	if (prevList->prev)
-		temp2 = prevList->prev;
+	temp1 = nextList->next;
+	temp2 = prevList->prev;
 
 	prevList->next = temp1;
 	nextList->prev = temp2;
