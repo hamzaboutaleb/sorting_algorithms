@@ -2,10 +2,11 @@
 #include "sort.h"
 
 /**
- * swap - swap to elemnt
- * @prevList: first list
- * @nextList: second list
+ * swap - swap nodes
+ * @prevList: first node
+ * @nextList: second node
 */
+
 void swap(listint_t *prevList, listint_t *nextList)
 {
 	listint_t *temp1, *temp2;
