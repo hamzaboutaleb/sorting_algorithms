@@ -26,7 +26,7 @@ size_t partition(int *array, size_t low, size_t high, size_t size)
     {
         if (array[i] <= pivot)
         {
-            swap(&array[i], array[j]);
+            swap(&array[i], &array[j]);
             j++;
         }
     }
