@@ -39,13 +39,11 @@ void insertion_sort_list(listint_t **list)
 	while (p1 != NULL)
 	{
 		p2 = p1;
-		p1 = p1->next;
 		while (p2->prev && p2->n < p2->prev->n)
 		{
 			swap(p2->prev, p2, list);
-			if (p2->prev == NULL)
-				*list = p2;
 			print_list(*list);
 		}
+		p1 = p1->next;
 	}
 }
