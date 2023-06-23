@@ -51,7 +51,6 @@ void insertion_sort_list(listint_t **list)
 				if (p2->prev == NULL)
 					*list = p2;
 				print_list(*list);
-				continue;
 			}
 			else
 				break;
