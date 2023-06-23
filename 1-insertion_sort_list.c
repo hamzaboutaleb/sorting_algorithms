@@ -53,7 +53,8 @@ void insertion_sort_list(listint_t **list)
 				print_list(*list);
 				continue;
 			}
-			p2 = p2->next;
+			else
+				break;
 		}
 		p1 = p1->next;
 	}
