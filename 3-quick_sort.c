@@ -32,11 +32,14 @@ size_t partition(int *array, size_t low, size_t high, size_t size)
 	pivot = array[high];
 	for (i = low; i < high; i++)
 	{
-		if (array[i] <= pivot && array[i] != array[j])
+		if (array[i] <= pivot )
 		{
 			j++;
-			swap(&array[i], &array[j]);
-			print_array(array, size);
+			if (array[i] != array[j])
+			{
+				swap(&array[i], &array[j]);
+				print_array(array, size);
+			}
 		}
 	}
 	if (array[j + 1] != array[high])
@@ -58,7 +61,7 @@ void quick_sort_rec(int *array, int low, int high, size_t size)
 {
 	int pivot_i;
 
-	if (low >= high)
+	if (low > high)
 		return;
 
 	pivot_i = partition(array, low, high, size);
