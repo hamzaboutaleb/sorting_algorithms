@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "sort.h"
 
 /**
@@ -52,8 +53,7 @@ void insertion_sort_list(listint_t **list)
 					*list = p2;
 				print_list(*list);
 			}
-			else
-				break;
+			break;
 		}
 	}
 }
