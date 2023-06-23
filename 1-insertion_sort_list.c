@@ -6,7 +6,7 @@
  * @prevList: first list
  * @nextList: second list
 */
-void swap(listint_t **head,listint_t *prevList, listint_t *nextList)
+void swap(listint_t *prevList, listint_t *nextList)
 {
 	listint_t *temp1 = NULL, *temp2 = NULL;
 
@@ -25,8 +25,6 @@ void swap(listint_t **head,listint_t *prevList, listint_t *nextList)
 		temp1->prev = prevList;
 	if (temp2)
 		temp2->next = nextList;
-	else
-		(*head) = nextList;
 }
 
 /**
@@ -50,8 +48,9 @@ void insertion_sort_list(listint_t **list)
 		{
 			if (p2->n < p2->prev->n)
 			{
-				swap(list ,p2->prev, p2);
-				
+				swap(p2->prev, p2);
+				if (p2->prev == NULL)
+					*list = p2;
 				print_list(*list);
 			}
 			else
